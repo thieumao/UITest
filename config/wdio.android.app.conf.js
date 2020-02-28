@@ -29,11 +29,14 @@ config.capabilities = [
         // https://github.com/appium/appium/releases/tag/v1.13.0
         'appium:automationName': 'UiAutomator2',
         // The path to the app
-        // 'appium:app': join(process.cwd(), './apps/Android-NativeDemoApp-0.2.1.apk'),
+        'appium:app': join(process.cwd(), './apps/Starbucks.apk'),
         'appium:appPackage': 'com.starbucks.mobilecard',
         'appium:appActivity': 'com.starbucks.mobilecard.main.activity.LandingPageActivity',
+        'appium:appWaitPackage': 'o.iw',
+        // 'appium:appPackage': 'com.starbucks.mobilecard',
+        // 'appium:appActivity': 'com.starbucks.mobilecard.main.activity.LandingPageActivity',
         // capabilities.setCapability("appPackage", "com.starbucks.mobilecard");
-		// capabilities.setCapability("appActivity", "com.starbucks.mobilecard.main.activity.LandingPageActivity");
+        // capabilities.setCapability("appActivity", "com.starbucks.mobilecard.main.activity.LandingPageActivity");
         // Read the reset strategies very well, they differ per platform, see
         // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
         'appium:noReset': true,

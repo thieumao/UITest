@@ -1,4 +1,4 @@
-const { join } = require('path');
+// const { join } = require('path');
 const { config } = require('./wdio.shared.conf');
 
 // ============
@@ -29,10 +29,13 @@ config.capabilities = [
         // https://github.com/appium/appium/releases/tag/v1.13.0
         'appium:automationName': 'UiAutomator2',
         // The path to the app
-        'appium:app': join(process.cwd(), './apps/Starbucks.apk'),
-        'appium:appPackage': 'com.starbucks.mobilecard',
-        'appium:appActivity': 'com.starbucks.mobilecard.main.activity.LandingPageActivity',
-        'appium:appWaitPackage': 'o.iw',
+        // 'appium:app': join(process.cwd(), './apps/Starbucks.apk'),
+        // 'appium:appPackage': 'com.starbucks.mobilecard',
+        // 'appium:appActivity': 'com.starbucks.mobilecard.main.activity.LandingPageActivity',
+        // 'appium:appWaitPackage': 'o.iw',
+        'appium:appPackage': 'vn.gapo.app',
+        'appium:appActivity': 'com.gg.gapo.view.SplashActivity',
+        'appium:appWaitPackage': 'com.android.vending',
         // 'appium:appPackage': 'com.starbucks.mobilecard',
         // 'appium:appActivity': 'com.starbucks.mobilecard.main.activity.LandingPageActivity',
         // capabilities.setCapability("appPackage", "com.starbucks.mobilecard");

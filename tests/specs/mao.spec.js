@@ -21,38 +21,24 @@ describe('GAPO', () => {
         };
 
         $(chatXpath).click();
+
         let i = 0;
         while (i < 1000) {
             i++;
 
             $(firstUserXpath).click();
 
-            $(firstChatField).click();
-            $(firstChatField).setValue('Hihi 1');
-            $(sendButtonXpath).click();
-
-            $(firstChatField).click();
-            $(firstChatField).setValue('Hihi 2');
-            $(sendButtonXpath).click();
-
-            $(firstChatField).click();
-            $(firstChatField).setValue('Hihi 3');
-            $(sendButtonXpath).click();
-
-            $(firstChatField).click();
-            $(firstChatField).setValue('Hihi 4');
-            $(sendButtonXpath).click();
-
-            $(firstChatField).click();
-            $(firstChatField).setValue('Hihi 5');
-            $(sendButtonXpath).click();
-
-            $(firstChatField).click();
-            $(firstChatField).setValue('Hihi 6');
-            $(sendButtonXpath).click();
+            let time = 0;
+            while (time < 10) {
+                time++;
+                $(firstChatField).click();
+                $(firstChatField).setValue('2');
+                $(sendButtonXpath).click();
+            }
 
             $(backXpath).click();
 
+            // scroll
             driver.touchPerform([{
                 action: 'press',
                 options: from,

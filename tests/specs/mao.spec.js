@@ -1,8 +1,18 @@
 describe('GAPO', () => {
-    beforeEach(() => {
-        // TabBar.waitForTabBarShown(true);
-        // TabBar.openLogin();
-        // LoginScreen.waitForIsShown(true);
+    // beforeEach(() => {
+    //     // TabBar.waitForTabBarShown(true);
+    //     // TabBar.openLogin();
+    //     // LoginScreen.waitForIsShown(true);
+    // });
+    var originalTimeout;
+
+    beforeEach(function () {
+        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000000000;
+    });
+
+    afterEach(function () {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
     it('Chat', () => {
@@ -21,6 +31,35 @@ describe('GAPO', () => {
         };
 
         $(chatXpath).click();
+        // scroll
+        driver.touchPerform([{
+            action: 'press',
+            options: from,
+        }, {
+            action: 'wait',
+            options: { ms: 1000 },
+        }, {
+            action: 'moveTo',
+            options: to,
+        }, {
+            action: 'release',
+        }]);
+        driver.pause(1000);
+
+        // scroll
+        driver.touchPerform([{
+            action: 'press',
+            options: from,
+        }, {
+            action: 'wait',
+            options: { ms: 1000 },
+        }, {
+            action: 'moveTo',
+            options: to,
+        }, {
+            action: 'release',
+        }]);
+        driver.pause(1000);
 
         let i = 0;
         while (i < 1000) {
@@ -29,13 +68,16 @@ describe('GAPO', () => {
             $(firstUserXpath).click();
 
             let time = 0;
-            while (time < 10) {
+            while (time < 2) {
                 time++;
                 $(firstChatField).click();
                 $(firstChatField).setValue('2');
                 $(sendButtonXpath).click();
             }
 
+            while ($(backXpath).isDisplayed() === false) {
+                driver.pause(1000);
+            };
             $(backXpath).click();
 
             // scroll
@@ -57,3 +99,4 @@ describe('GAPO', () => {
         driver.setImplicitTimeout(5000);
     });
 });
+// npm run android.app
